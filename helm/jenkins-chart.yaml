@@ -31,10 +31,13 @@ installPlugins:
   # targetPort: 8080
   # servicePort: 8080
   # serviceType: LoadBalancer
-  
+
+#List of groovy init scripts to be executed during Jenkins master start
+  # initScripts:  
 agent:
   enabled: true
-  image: "jenkins/jnlp-slave"
+  #image: "jenkins/jnlp-slave"
+  image: "jenkins/jnlp-agent-docker"
   resources:
     requests:
       cpu: null
@@ -42,6 +45,7 @@ agent:
     limits:
       cpu: null
       memory: null
+  #command: "curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl && chmod +x ./kubectl && sudo mv ./kubectl /usr/local/bin/kubectl"
 
 #to allow jenkins create slave pods
 rbac:
