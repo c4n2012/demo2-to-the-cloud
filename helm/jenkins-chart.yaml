@@ -26,11 +26,13 @@ installPlugins:
     - locale:1.4
     - ant:1.9
     - pam-auth:1.5.1
+    - google-oauth-plugin:0.8
     # - google-kubernetes-engine:0.6.3
+  
+serviceType: LoadBalancer 
+targetPort: 8080
+servicePort: 8080
 
-  # targetPort: 8080
-  # servicePort: 8080
-  # serviceType: LoadBalancer
 
 #List of groovy init scripts to be executed during Jenkins master start
   # initScripts:  
