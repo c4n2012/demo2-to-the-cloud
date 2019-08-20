@@ -27,8 +27,12 @@ installPlugins:
     - ant:1.9
     - pam-auth:1.5.1
     - google-oauth-plugin:0.8
+    - google-container-registry-auth
     # - google-kubernetes-engine:0.6.3
-  
+  #Google OAuth Credentials
+#Google Container Registry Auth Plugin
+
+
 serviceType: LoadBalancer 
 targetPort: 8080
 servicePort: 8080
