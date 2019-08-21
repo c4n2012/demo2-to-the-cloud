@@ -8,6 +8,9 @@ variable "project_name" {
 variable "gloud_creds_file" {
   default = "~/.kube/demo2-248908.json"
 }
+variable "storage_creds_file" {
+  default = "~/.kube/jenkins-gcr.json"
+}
 
 variable "location" {
   default = "europe-west3"
@@ -18,7 +21,7 @@ variable "node-count"{
 }
 variable "machine_type" {
 //   default = "g1-small"
-  default = "n1-standard-1"
+  default = "n1-standard-2"
 }
 
 // Database configuration

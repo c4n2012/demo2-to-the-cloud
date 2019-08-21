@@ -117,6 +117,16 @@ resource "kubernetes_namespace" "jenkins" {
   }
   depends_on = ["google_container_node_pool.primary"]
 }
+resource "kubernetes_secret" "jenkins-gcr-json" {
+  metadata {
+    name = "jenkins-gcr-json"
+    namespace = "jenkins"
+  }
+
+  data = {
+    "jenkins-gcr.json" = "${file ("${var.storage_creds_file}")}"
+  }
+}
 
 resource "null_resource" "configure_tiller_jenkins" {
   provisioner "local-exec" {
