@@ -97,17 +97,6 @@ resource "local_file" "kubeconfig" {
   filename = "kubeconfig"
 }
 
-data "template_file" "helm_values" {
-  template = file("helm_values_template.yaml")
-  vars = {
-    PROJECT    = "${var.project_name}"
-  }
-}
-resource "local_file" "helm_values" {
-  content  = data.template_file.helm_values.rendered
-  filename = "helm_values.txt"
-}
-
 resource "kubernetes_namespace" "prod" {
   metadata {
     name = "prod"

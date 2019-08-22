@@ -1,3 +1,5 @@
-envVars:
- - name: PROJECT
-   value: ${PROJECT}
+# does not work on slaves
+master:
+  initContainerEnv:
+    - name: PROJECT
+      value: "${PROJECT}"
