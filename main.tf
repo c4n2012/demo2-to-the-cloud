@@ -126,6 +126,7 @@ resource "kubernetes_secret" "jenkins-gcr-json" {
   data = {
     "jenkins-gcr.json" = "${file ("${var.storage_creds_file}")}"
   }
+  depends_on = ["google_container_node_pool.primary","kubernetes_namespace.jenkins"]
 }
 
 resource "null_resource" "configure_tiller_jenkins" {
