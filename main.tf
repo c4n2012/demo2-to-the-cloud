@@ -122,11 +122,10 @@ resource "kubernetes_secret" "jenkins-gcr-json" {
     name = "jenkins-gcr-json"
     namespace = "jenkins"
   }
-
   data = {
     "jenkins-gcr.json" = "${file ("${var.storage_creds_file}")}"
   }
-  depends_on = ["google_container_node_pool.primary","kubernetes_namespace.jenkins"]
+  depends_on = ["google_container_node_pool.primary","local_file.kubeconfig","kubernetes_namespace.jenkins"]
 }
 
 resource "null_resource" "configure_tiller_jenkins" {
