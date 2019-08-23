@@ -135,7 +135,7 @@ kubectl config use-context "tf-k8s-gcp-test" --kubeconfig=${local_file.kubeconfi
 kubectl apply -f helm/create-helm-service-account.yml --kubeconfig=${local_file.kubeconfig.filename}
 kubectl apply -f helm/create-jenkins-service-account.yml --kubeconfig=${local_file.kubeconfig.filename}
 helm init --service-account helm --upgrade --wait --kubeconfig=${local_file.kubeconfig.filename}
-helm install --name jenkins --namespace jenkins --values helm_values.txt -f helm/jenkins-chart.yaml stable/jenkins --wait --kubeconfig=${local_file.kubeconfig.filename}
+helm install --name jenkins --namespace jenkins -f helm/jenkins-chart.yaml stable/jenkins --wait --kubeconfig=${local_file.kubeconfig.filename}
 # get service --namespace jenkins --kubeconfig=kubeconfig
 LOCAL_EXEC
   }
